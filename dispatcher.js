@@ -151,7 +151,8 @@ Dispatcher.prototype.touchmove = function(event, e){
 Dispatcher.prototype.touchend = function(event, e){
   var target = this.target;
   hideFingers(this.touches);
-  event.changedTouches = event.targetTouches = event.touches = this.touches;
+  event.changedTouches = event.targetTouches = this.touches;
+  event.touches = [];
   this.target = this.touches = null;
   target.dispatchEvent(event);
 };
