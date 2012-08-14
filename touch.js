@@ -22,7 +22,7 @@ module.exports = Touch;
  */
 
 function Touch(e, target) {
-  this.identifier = new Date + Math.random();
+  this.identifier = Date.now() + Math.random();
   this.target = target;
   this.update(e);
   this.finger = new Finger;
