@@ -14,4 +14,6 @@ console.log = function(fmt){
   var msg = document.createElement('li');
   msg.textContent = fmt;
   list.appendChild(msg);
+
+  list.scrollTop = list.scrollHeight;
 };

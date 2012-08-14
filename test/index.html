@@ -27,7 +27,7 @@
       };
 
       hammer.ontransform = function(e){
-        console.log('scale(%s) rotate(%s)', e.scale, e.rotation | 0);
+        console.log('scale(%s) rotate(%s)', e.scale.toFixed(2), e.rotation | 0);
         img.width = w * e.scale;
         img.height = h * e.scale;
         img.style['-webkit-transform'] = 'rotate(' + (e.rotation | 0) + 'deg)';
