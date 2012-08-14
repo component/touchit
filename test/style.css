@@ -1,0 +1,17 @@
+body {
+  padding: 60px;
+  font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+p {
+  width: 300px;
+}
+* {
+  -webkit-user-select: none;
+}
+.center {
+  text-align: center;
+  width: 100%;
+}
+img {
+  margin: 5px auto;
+}
