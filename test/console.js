@@ -1,9 +1,7 @@
 
 var list = document.getElementById('console');
 
-console = {};
-
-console.log = function(fmt){
+function log(fmt){
   var i = 1;
   var args = arguments;
 

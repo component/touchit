@@ -29,34 +29,34 @@
       hammer.ontransformstart = function(e){
         w = img.width;
         h = img.height;
-        console.log(w);
+        log(w);
       };
 
       hammer.ontransform = function(e){
-        console.log('scale(%s) rotate(%s)', e.scale.toFixed(2), e.rotation | 0);
+        log('scale(%s) rotate(%s)', e.scale.toFixed(2), e.rotation | 0);
         img.width = w * e.scale;
         img.height = h * e.scale;
         img.style['-webkit-transform'] = 'rotate(' + (e.rotation | 0) + 'deg)';
       };
 
       hammer.ontransformend = function(e){
-        console.log('end');
+        log('end');
       };
 
       hammer.onswipe = function(e){
-        console.log('swipe');
+        log('swipe');
       };
 
       hammer.ontap = function(e){
-        console.log('tap');
+        log('tap');
       };
 
       hammer.ondoubletap = function(e){
-        console.log('double tap');
+        log('double tap');
       };
 
       hammer.onhold = function(e){
-        console.log('hold');
+        log('hold');
         img.classList.add('hold');
         setTimeout(function(){
           img.classList.remove('hold');
