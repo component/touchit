@@ -16,6 +16,10 @@ p {
   width: 100%;
 }
 
+ul {
+  font-size: 12px;
+}
+
 img {
   margin: 5px auto;
 }
