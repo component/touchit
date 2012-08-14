@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>TouchIt.js</h1>
-    <p>Touch event simulation in the browser! Simply hold down <em>option</em> to enable a second "finger".</p>
+    <p>Touch event simulation in the browser! Simply hold down <em>option</em> to enable a second "finger". Try pinching Maru!</p>
     <p class="center"><img src="http://www.weruletheinternet.com/wp-content/uploads/images/2011/june/maru_the_cat/maru_the_cat_4.jpg" width=200 height=150 id="maru"></p>
     <ul id="console"></ul>
     <script src="../build/build.js"></script>
@@ -51,6 +51,10 @@
 
       hammer.onhold = function(e){
         console.log('hold');
+        img.classList.add('hold');
+        setTimeout(function(){
+          img.classList.remove('hold');
+        }, 1000);
       };
     </script>
   </body>

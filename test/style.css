@@ -2,19 +2,29 @@ body {
   padding: 60px;
   font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 p {
   width: 300px;
 }
+
 * {
   -webkit-user-select: none;
 }
+
 .center {
   text-align: center;
   width: 100%;
 }
+
 img {
   margin: 5px auto;
 }
+
+img.hold {
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: 1s;
+}
+
 #console {
   position: absolute;
   top: 5px;
@@ -23,6 +33,13 @@ img {
   overflow-y: hidden;
   height: 350px;
 }
+
 #console li {
   list-style: none;
+}
+
+@-webkit-keyframes shake {
+	0%, 100% {-webkit-transform: translateX(0);}
+	10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
+	20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
 }
