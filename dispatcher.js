@@ -101,8 +101,8 @@ Dispatcher.prototype.touchstart = function(event, e){
   // two fingers
   if (this.two) {
     var touch = this.addTouch(e);
-    touch.pageX = window.innerWidth - e.pageX;
-    touch.pageY = window.innerHeight - e.pageY;
+    touch.pageX = e.pageX - 50;
+    touch.pageY = e.pageY + 50;
   }
 
   // move
@@ -130,12 +130,12 @@ Dispatcher.prototype.touchmove = function(event, e){
   one.update(e);
   one.finger.moveTo(e.pageX, e.pageY);
 
-  if (this.two) {
-    two.update(e);
-    two.pageX = window.innerWidth - e.pageX;
-    two.pageY = window.innerHeight - e.pageY;
-    two.finger.moveTo(two.pageX, two.pageY);
-  }
+  // if (this.two) {
+  //   two.update(e);
+  //   two.pageX = window.innerWidth - e.pageX;
+  //   two.pageY = window.innerHeight - e.pageY;
+  //   two.finger.moveTo(two.pageX, two.pageY);
+  // }
 
   // dispatch
   event.changedTouches = event.targetTouches = event.touches = this.touches;

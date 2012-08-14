@@ -15,7 +15,11 @@
       <li>Swiping Maru to move him</li>
     </ul>
 
-    <p class="center"><img src="http://www.weruletheinternet.com/wp-content/uploads/images/2011/june/maru_the_cat/maru_the_cat_4.jpg" width=200 height=150 id="maru"></p>
+    <p class="center">
+      <img src="http://www.weruletheinternet.com/wp-content/uploads/images/2011/june/maru_the_cat/maru_the_cat_4.jpg" width=200 height=150>
+      <img src="http://www.weruletheinternet.com/wp-content/uploads/images/2011/june/maru_the_cat/maru_the_cat_4.jpg" width=200 height=150>
+      <img src="http://www.weruletheinternet.com/wp-content/uploads/images/2011/june/maru_the_cat/maru_the_cat_4.jpg" width=200 height=150>
+    </p>
     <ul id="console"></ul>
     <script src="../build/build.js"></script>
     <script src="console.js"></script>
@@ -23,66 +27,73 @@
     <script>
       require('touchit')();
 
-      var img = document.getElementById('maru');
-      var hammer = new Hammer(img);
-      var w, h;
+      var imgs = document.querySelectorAll('img');
 
-      hammer.ontransformstart = function(e){
-        w = img.width;
-        h = img.height;
-        log(w);
-      };
+      for (var i = 0; i < imgs.length; ++i) {
+        track(imgs[i]);
+      }
 
-      hammer.ontransform = function(e){
-        log('scale(%s) rotate(%s)', e.scale.toFixed(2), e.rotation | 0);
-        img.width = w * e.scale;
-        img.height = h * e.scale;
-        img.style['-webkit-transform'] = 'rotate(' + (e.rotation | 0) + 'deg)';
-      };
+      function track(img) {
+        var hammer = new Hammer(img);
+        var w, h;
 
-      hammer.ontransformend = function(e){
-        log('end');
-      };
+        hammer.ontransformstart = function(e){
+          w = img.width;
+          h = img.height;
+          log(w);
+        };
 
-      hammer.onswipe = function(e){
-        log('swipe %s', e.direction);
-        switch (e.direction) {
-          case 'left':
-            img.style.marginLeft = '-100px';
-            break;
-          case 'right':
-            img.style.marginLeft = '100px';
-            break;
-        }
-      };
+        hammer.ontransform = function(e){
+          log('scale(%s) rotate(%s)', e.scale.toFixed(2), e.rotation | 0);
+          img.width = w * e.scale;
+          img.height = h * e.scale;
+          img.style['-webkit-transform'] = 'rotate(' + (e.rotation | 0) + 'deg)';
+        };
 
-      hammer.ontap = function(e){
-        log('tap');
-      };
+        hammer.ontransformend = function(e){
+          log('end');
+        };
 
-      hammer.ondoubletap = function(e){
-        log('double tap');
-      };
+        hammer.onswipe = function(e){
+          log('swipe %s', e.direction);
+          switch (e.direction) {
+            case 'left':
+              img.style.marginLeft = '-100px';
+              break;
+            case 'right':
+              img.style.marginLeft = '100px';
+              break;
+          }
+        };
 
-      hammer.onhold = function(e){
-        log('hold');
-        img.classList.add('hold');
-        setTimeout(function(){
-          img.classList.remove('hold');
-        }, 1000);
-      };
+        hammer.ontap = function(e){
+          log('tap');
+        };
 
-      hammer.ondragstart = function(e){
-        log('drag start');
-      };
+        hammer.ondoubletap = function(e){
+          log('double tap');
+        };
 
-      hammer.ondrag = function(e){
-        log('drag %s %s', e.distanceX, e.distanceY);
-      };
+        hammer.onhold = function(e){
+          log('hold');
+          img.classList.add('hold');
+          setTimeout(function(){
+            img.classList.remove('hold');
+          }, 1000);
+        };
 
-      hammer.ondragend = function(e){
-        log('drag end');
-      };
+        hammer.ondragstart = function(e){
+          log('drag start');
+        };
+
+        hammer.ondrag = function(e){
+          log('drag %s %s', e.distanceX, e.distanceY);
+        };
+
+        hammer.ondragend = function(e){
+          log('drag end');
+        };
+      }
     </script>
   </body>
 </html>
