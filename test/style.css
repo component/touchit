@@ -22,6 +22,7 @@ ul {
 
 img {
   margin: 5px auto;
+  -webkit-transition: margin 300ms;
 }
 
 img.hold {
