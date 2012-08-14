@@ -15,3 +15,14 @@ p {
 img {
   margin: 5px auto;
 }
+#console {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 11px;
+  overflow-y: hidden;
+  height: 350px;
+}
+#console li {
+  list-style: none;
+}

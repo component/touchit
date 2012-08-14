@@ -9,7 +9,9 @@
     <h1>TouchIt.js</h1>
     <p>Touch event simulation in the browser! Simply hold down <em>option</em> to enable a second "finger".</p>
     <p class="center"><img src="http://www.weruletheinternet.com/wp-content/uploads/images/2011/june/maru_the_cat/maru_the_cat_4.jpg" width=200 height=150 id="maru"></p>
+    <ul id="console"></ul>
     <script src="../build/build.js"></script>
+    <script src="console.js"></script>
     <script src="hammer.js"></script>
     <script>
       require('touchit')();
@@ -25,7 +27,7 @@
       };
 
       hammer.ontransform = function(e){
-        console.log('scale(%d) rotate(%d)', e.scale, e.rotation | 0);
+        console.log('scale(%s) rotate(%s)', e.scale, e.rotation | 0);
         img.width = w * e.scale;
         img.height = h * e.scale;
         img.style['-webkit-transform'] = 'rotate(' + (e.rotation | 0) + 'deg)';
