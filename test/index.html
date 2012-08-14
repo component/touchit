@@ -62,6 +62,18 @@
           img.classList.remove('hold');
         }, 1000);
       };
+
+      hammer.ondragstart = function(e){
+        log('drag start');
+      };
+
+      hammer.ondrag = function(e){
+        log('drag %s %s', e.distanceX, e.distanceY);
+      };
+
+      hammer.ondragend = function(e){
+        log('drag end');
+      };
     </script>
   </body>
 </html>

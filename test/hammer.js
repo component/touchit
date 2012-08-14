@@ -416,7 +416,6 @@ function Hammer(element, options, undefined)
                 // on the first time trigger the start event
                 if(_first) {
                     triggerEvent("dragstart", event_obj);
-
                     _first = false;
                 }
 
