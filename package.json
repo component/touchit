@@ -1,0 +1,15 @@
+{
+  "name": "touchit",
+  "description": "multi-touch simulation in the browser",
+  "version": "0.0.1",
+  "keywords": ["touch", "event", "events"],
+  "component": {
+    "scripts": {
+      "touchit/index.js": "index.js",
+      "touchit/touch.js": "touch.js",
+      "touchit/finger.js": "finger.js",
+      "touchit/dispatcher.js": "dispatcher.js"
+    },
+    "styles": ["touchit.css"]
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TouchIt.js</title>
+    <style>
+      body {
+        padding: 60px;
+        font: 14px/1.6 "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      p {
+        width: 300px;
+      }
+      * {
+        -webkit-user-select: none;
+      }
+      .center {
+        text-align: center;
+        width: 100%;
+      }
+      img {
+        margin: 5px auto;
+      }
+    </style>
+    <link rel="stylesheet" href="../build/build.css" type="text/css" media="screen"/>
+  </head>
+  <body>
+    <h1>TouchIt.js</h1>
+    <p>Touch event simulation in the browser! Simply hold down <em>option</em> to enable a second "finger".</p>
+    <p class="center"><img src="http://www.weruletheinternet.com/wp-content/uploads/images/2011/june/maru_the_cat/maru_the_cat_4.jpg" width=200 height=150 id="maru"></p>
+    <script src="../build/build.js"></script>
+    <script src="hammer.js"></script>
+    <script>
+      require('touchit')();
+
+      var img = document.getElementById('maru');
+      var hammer = new Hammer(img);
+      var w, h;
+
+      hammer.ontransformstart = function(e){
+        w = img.width;
+        h = img.height;
+        console.log(w);
+      };
+
+      hammer.ontransform = function(e){
+        console.log('scale(%d) rotate(%d)', e.scale, e.rotation | 0);
+        img.width = w * e.scale;
+        img.height = h * e.scale;
+        img.style['-webkit-transform'] = 'rotate(' + (e.rotation | 0) + 'deg)';
+      };
+
+      hammer.ontransformend = function(e){
+        console.log('end');
+      };
+
+      hammer.onswipe = function(e){
+        console.log('swipe');
+      };
+
+      hammer.ontap = function(e){
+        console.log('tap');
+      };
+
+      hammer.ondoubletap = function(e){
+        console.log('double tap');
+      };
+
+      hammer.onhold = function(e){
+        console.log('hold');
+      };
+    </script>
+  </body>
+</html>
