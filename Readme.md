@@ -1,7 +1,7 @@
 
 # TouchIt.js
 
-  Multi-touch event emulation for your browser!
+  Multi-touch event simulation for your browser!
 
 ## License 
 
