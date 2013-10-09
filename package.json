@@ -2,7 +2,11 @@
   "name": "touchit",
   "description": "multi-touch simulation in the browser",
   "version": "0.0.1",
-  "keywords": ["touch", "event", "events"],
+  "keywords": [
+    "touch",
+    "event",
+    "events"
+  ],
   "component": {
     "scripts": {
       "touchit/index.js": "index.js",
@@ -10,6 +14,12 @@
       "touchit/finger.js": "finger.js",
       "touchit/dispatcher.js": "dispatcher.js"
     },
-    "styles": ["touchit.css"]
+    "styles": [
+      "touchit.css"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/touchit.git"
   }
 }
